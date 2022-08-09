@@ -25,8 +25,8 @@ const Home = (props) => {
       <div className={styles.container}>
         <div className={stylesContainer}>
           {language === LANGUAGES.EN.LANG
-            ? LANGUAGES.EN.TITLE
-            : LANGUAGES.UK.TITLE}
+            ? LANGUAGES.EN.PAGE.HOME.TITLE
+            : LANGUAGES.UK.PAGE.HOME.TITLE}
         </div>
       </div>
     </>

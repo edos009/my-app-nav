@@ -13,7 +13,12 @@ const CONSTANTS = {
         { to: "/about", title: "About" },
         { to: "/contacts", title: "Contacts" },
       ],
-      TITLE: "Home",
+      PAGE: {
+        HOME: { TITLE: "Home" },
+        GALLERY: { TITLE: "Gallery" },
+        ABOUT: { TITLE: "About" },
+        CONTACTS: { TITLE: "Contacts" },
+      },
       FOOTER: "Tiutiunnyk Eduard | @2022",
     },
     UK: {
@@ -25,7 +30,12 @@ const CONSTANTS = {
         { to: "/about", title: "О нас" },
         { to: "/contacts", title: "Контакти" },
       ],
-      TITLE: "Дім",
+      PAGE: {
+        HOME: { TITLE: "Дім" },
+        GALLERY: { TITLE: "Галерея" },
+        ABOUT: { TITLE: "О нас" },
+        CONTACTS: { TITLE: "Контакти" },
+      },
       FOOTER: "Тютюнник Едуард | @2022",
     },
   },

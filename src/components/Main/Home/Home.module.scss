@@ -2,16 +2,7 @@
 @import '../../../common/styles/template';
 
 .main_box {
-  display: block;
-  height: 100%;
-  padding: 20px 0;
-  margin: -10px 0;
-
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 1.2em;
-  text-align: center;
-  text-transform: uppercase;
+  @extend %main_box;
 }
 
 .light_bg_main{

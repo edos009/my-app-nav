@@ -1,3 +1,16 @@
+%main_box{
+  display: block;
+  height: 100%;
+  padding: 20px 0;
+  margin: -10px 0;
+
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 %dark_bg{
   background-color: #222;
 }
@@ -21,3 +34,4 @@
 %dark_bg_main{
   background-color: #5c5c5c;
 }
+
