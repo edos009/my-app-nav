@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Kiev", "population": 10000000 },
+  { "id": 2, "name": "Lviv", "population": 75000000 },
+  { "id": 3, "name": "Zaporozhye", "population": 50000000 }
+]

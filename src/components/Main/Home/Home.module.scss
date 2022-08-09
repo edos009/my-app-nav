@@ -1,0 +1,31 @@
+@import '../../../App.module.scss';
+@import '../../../common/styles/template';
+
+.main_box {
+  display: block;
+  height: 100%;
+  padding: 20px 0;
+  margin: -10px 0;
+
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.light_bg_main{
+  @extend %light_bg_main;
+}
+
+.dark_bg_main{
+  @extend %dark_bg_main;
+}
+
+.light_color {
+  @extend %light_color;
+}
+
+.dark_color {
+  @extend %dark_color;
+}

@@ -1,0 +1,25 @@
+@import '../../../common/styles/template';
+
+.logo {
+  margin-left: 50px;
+
+  padding: 15px 0;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.light_color {
+  @extend %light_color;
+}
+
+.dark_color {
+  @extend %dark_color;
+}
