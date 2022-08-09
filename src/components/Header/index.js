@@ -3,10 +3,10 @@ import cx from "classnames";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { WithLanguage, WithTheme } from "../../HOCs";
-import Logo from "./Logo";
-import Navigation from "./Navigation";
+import styles from '../../App.module.scss';
 import CONSTANTS from "../../constants";
-import styles from "../../App.module.scss";
+import Logo from './Logo';
+import Navigation from "./Navigation";
 
 const { THEMES, LANGUAGES } = CONSTANTS;
 
@@ -14,7 +14,7 @@ class Header extends Component {
   render() {
     const { theme, language, setTheme, setLanguages } = this.props;
 
-    const stylesContainer = cx(styles.menu, {
+    const stylesContainer = cx({
       [styles.light_bg]: theme === THEMES.LIGHT,
       [styles.dark_bg]: theme === THEMES.DARK,
     });
@@ -36,9 +36,9 @@ class Header extends Component {
     };
 
     return (
-      <header>
+      <header className={stylesContainer}>
         <div className={styles.container}>
-          <div className={stylesContainer}>
+          <div className={styles.menu}>
             <Logo />
             <Navigation />
             <span className={styles.btn_theme} onClick={handlerClickTheme}>

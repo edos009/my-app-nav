@@ -10,7 +10,6 @@ class Footer extends Component {
   render() {
     const { theme, language } = this.props;
     const stylesContainer = cx(
-      styles.footer,
       {
         [styles.light_bg]: theme === THEMES.LIGHT,
         [styles.dark_bg]: theme === THEMES.DARK,
@@ -22,16 +21,16 @@ class Footer extends Component {
     );
 
     return (
-            <footer>
-              <div className={styles.container}>
-                <div className={stylesContainer}>
-                  {language === LANGUAGES.EN.LANG
-                    ? LANGUAGES.EN.FOOTER
-                    : LANGUAGES.UK.FOOTER}
-                </div>
-              </div>
-            </footer>
-          );
+      <footer className={stylesContainer}>
+        <div className={styles.container}>
+          <div className={styles.footer}>
+            {language === LANGUAGES.EN.LANG
+              ? LANGUAGES.EN.FOOTER
+              : LANGUAGES.UK.FOOTER}
+          </div>
+        </div>
+      </footer>
+    );
   }
 }
 

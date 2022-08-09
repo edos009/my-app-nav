@@ -1,16 +1,8 @@
-@import '../../../App.module.scss';
-@import '../../../common/styles/template';
+@import "../../../App.module.scss";
+@import "../../../common/styles/template";
 
 .main_box {
   @extend %main_box;
-}
-
-.light_bg_main{
-  @extend %light_bg_main;
-}
-
-.dark_bg_main{
-  @extend %dark_bg_main;
 }
 
 .light_color {

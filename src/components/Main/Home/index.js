@@ -12,10 +12,6 @@ const Home = (props) => {
   const stylesContainer = cx(
     styles.main_box,
     {
-      [styles.light_bg_main]: theme === THEMES.LIGHT,
-      [styles.dark_bg_main]: theme === THEMES.DARK,
-    },
-    {
       [styles.light_color]: theme === THEMES.LIGHT,
       [styles.dark_color]: theme === THEMES.DARK,
     }
