@@ -24,6 +24,11 @@ class App extends Component {
     this.setState({ language });
   };
 
+  onSubmit = (values, formikBag) => {
+    console.log(values);
+    formikBag.resetForm();
+  }
+
   render() {
     const { theme, language } = this.state;
     return (
@@ -31,7 +36,7 @@ class App extends Component {
         <ThemeContext.Provider value={[theme, this.setTheme]}>
           <LanguageContext.Provider value={[language, this.setLanguages]}>
             <Header />
-            <Main/>
+            <Main onSubmit={this.onSubmit} />
             <Footer />
           </LanguageContext.Provider>
         </ThemeContext.Provider>

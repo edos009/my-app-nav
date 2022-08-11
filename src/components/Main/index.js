@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Gallery from "./Gallery";
 import About from "./About";
-import Contacts from "./Contacts";
+import SignIn from "./SignIn";
 import styles from "../../App.module.scss";
 import { WithLanguage, WithTheme } from "../../HOCs";
 import CONSTANTS from "../../constants";
@@ -12,7 +12,7 @@ import cx from 'classnames';
 const {THEMES} = CONSTANTS;
 
 const Main = (props) => {
-  const { theme } = props;
+  const { theme, onSubmit } = props;
 
   const stylesContainer = cx({
     [styles.light_bg_main]: theme === THEMES.LIGHT,
@@ -25,7 +25,7 @@ const Main = (props) => {
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/login" element={<SignIn onSubmit={onSubmit} />} />
       </Routes>
     </main>
   );

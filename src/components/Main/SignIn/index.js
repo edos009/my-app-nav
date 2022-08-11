@@ -2,12 +2,13 @@ import React from "react";
 import { WithLanguage, WithTheme } from "../../../HOCs";
 import cx from "classnames";
 import CONSTANTS from "../../../constants";
-import styles from "./Contacts.module.scss";
+import styles from "./SignIn.module.scss";
+import SignInForm from "../../Forms/SignInForm";
 
 const { THEMES, LANGUAGES } = CONSTANTS;
 
-const Contacts = (props) => {
-  const { theme, language } = props;
+const SignIn = (props) => {
+  const { theme, language, onSubmit } = props;
 
   const stylesContainer = cx(styles.main_box, {
     [styles.light_color]: theme === THEMES.LIGHT,
@@ -18,12 +19,13 @@ const Contacts = (props) => {
       <div className={stylesContainer}>
         <div className={styles.main_box}>
           {language === LANGUAGES.EN.LANG
-            ? LANGUAGES.EN.PAGE.CONTACTS.TITLE
-            : LANGUAGES.UK.PAGE.CONTACTS.TITLE}
+            ? LANGUAGES.EN.PAGE.SIGN_IN.TITLE
+            : LANGUAGES.UK.PAGE.SIGN_IN.TITLE}
+          <SignInForm onSubmit={onSubmit} />
         </div>
       </div>
     </div>
   );
 };
 
-export default WithTheme(WithLanguage(Contacts));
+export default WithTheme(WithLanguage(SignIn));
