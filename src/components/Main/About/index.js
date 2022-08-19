@@ -1,13 +1,14 @@
-import React from "react";
-import { WithLanguage, WithTheme } from "../../../HOCs";
+import React, { useContext } from "react";
 import cx from "classnames";
 import CONSTANTS from "../../../constants";
 import styles from "./About.module.scss";
+import { ThemeContext, LanguageContext } from "../../../contexts";
 
 const { THEMES, LANGUAGES } = CONSTANTS;
 
-const About = (props) => {
-  const { theme, language } = props;
+const About = () => {
+  const [theme] = useContext(ThemeContext);
+  const [language] = useContext(LanguageContext);
 
   const stylesContainer = cx(styles.main_box, {
     [styles.light_color]: theme === THEMES.LIGHT,
@@ -26,4 +27,4 @@ const About = (props) => {
   );
 };
 
-export default WithTheme(WithLanguage(About));
+export default About;

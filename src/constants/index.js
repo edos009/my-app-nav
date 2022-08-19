@@ -14,7 +14,7 @@ const CONSTANTS = {
         { to: "/login", title: "Sign In" },
       ],
       PAGE: {
-        HOME: { TITLE: "Home" },
+        HOME: { TITLE: "Countries" },
         GALLERY: { TITLE: "Gallery" },
         ABOUT: { TITLE: "About" },
         SIGN_IN: { TITLE: "Sign In" },
@@ -31,7 +31,7 @@ const CONSTANTS = {
         { to: "/contacts", title: "Увійти" },
       ],
       PAGE: {
-        HOME: { TITLE: "Дім" },
+        HOME: { TITLE: "Країни" },
         GALLERY: { TITLE: "Галерея" },
         ABOUT: { TITLE: "О нас" },
         SIGN_IN: { TITLE: "Увійти" },

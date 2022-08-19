@@ -3,8 +3,8 @@ import { LanguageContext, ThemeContext } from "../contexts";
 export const WithTheme = (InnerComponent) => (props) =>
   (
     <ThemeContext.Consumer>
-      {([theme, setTheme]) => (
-        <InnerComponent theme={theme} setTheme={setTheme} {...props} />
+      {([theme, setThemes]) => (
+        <InnerComponent theme={theme} setThemes={setThemes} {...props} />
       )}
     </ThemeContext.Consumer>
   );

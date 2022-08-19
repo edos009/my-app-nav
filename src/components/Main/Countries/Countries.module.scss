@@ -1,0 +1,106 @@
+@import "../../../common/styles/template";
+
+.main {
+  &_input_search {
+    display: block;
+
+    max-width: 400px;
+    width: 100%;
+
+    padding: 15px;
+    margin-left: auto;
+    border: none;
+    border-radius: 3px;
+
+    outline: none;
+
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.2em;
+  }
+
+  &_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+  }
+  &_item {
+    flex-basis: 390px;
+
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
+  &_box_img {
+    width: 90%;
+    height: 220px;
+
+    margin: 20px auto;
+  }
+
+  &_img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &_box_info {
+    margin: 0 20px 20px;
+  }
+
+  &_name,
+  &_capital,
+  &_region,
+  &_population {
+    margin-bottom: 2px;
+
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2em;
+  }
+
+  &_capital span,
+  &_region span,
+  &_population span {
+    font-weight: 700;
+    border-bottom: 2px solid;
+  }
+
+  &_name {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 26px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.light_bg {
+  @extend %light_bg;
+}
+
+.dark_bg {
+  @extend %dark_bg;
+}
+
+.light_color {
+  @extend %light_color;
+}
+
+.dark_color {
+  @extend %dark_color;
+}
+
+.light_border_color {
+  @extend %light_border_color;
+}
+
+.dark_border_color {
+  @extend %dark_border_color;
+}

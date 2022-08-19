@@ -1,13 +1,15 @@
-import React from "react";
-import { WithLanguage, WithTheme } from "../../../HOCs";
+import React, { useContext } from "react";
 import cx from "classnames";
 import CONSTANTS from "../../../constants";
+
 import styles from "./Gallery.module.scss";
+import { ThemeContext, LanguageContext } from "../../../contexts";
 
 const { THEMES, LANGUAGES } = CONSTANTS;
 
-const Gallery = (props) => {
-  const { theme, language } = props;
+const Gallery = () => {
+  const [theme] = useContext(ThemeContext);
+  const [language] = useContext(LanguageContext);
 
   const stylesContainer = cx(styles.main_box, {
     [styles.light_color]: theme === THEMES.LIGHT,
@@ -26,4 +28,4 @@ const Gallery = (props) => {
   );
 };
 
-export default WithTheme(WithLanguage(Gallery));
+export default Gallery;

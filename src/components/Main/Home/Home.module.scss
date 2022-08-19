@@ -1,8 +1,12 @@
 @import '../../../App.module.scss';
 @import '../../../common/styles/template';
 
-.main_box {
+.main {
   @extend %main_box;
+}
+
+.main_title{
+  @extend %main_title;
 }
 
 .light_color {

@@ -1,8 +1,10 @@
-%main_box{
+%main_box {
   display: block;
   height: 100%;
   padding: 20px 0;
+}
 
+%main_title {
   font-weight: 700;
   font-size: 30px;
   line-height: 1.2em;
@@ -10,27 +12,26 @@
   text-transform: uppercase;
 }
 
-%dark_bg{
+%dark_bg {
   background-color: #222;
 }
 
-%light_bg{
+%light_bg {
   background-color: #c3c3c3;
 }
 
-%dark_color{
+%dark_color, %dark_border_color{
   color: #fff;
 }
 
-%light_color{
+%light_color, %light_border_color {
   color: #222;
 }
 
-%light_bg_main{
+%light_bg_main {
   background-color: #efefef;
 }
 
-%dark_bg_main{
+%dark_bg_main {
   background-color: #5c5c5c;
 }
-
