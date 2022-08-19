@@ -20,10 +20,15 @@ const { THEMES } = CONSTANTS;
 
 const Countries = () => {
   const [value, setValue] = useState("");
-  const [state, dispatch] = useReducer(reducer, {
+  const [
+    { countries, error, isFetching, checkedCountries, removedCountries },
+    dispatch,
+  ] = useReducer(reducer, {
     countries: [],
     error: null,
     isFetching: false,
+    checkedCountries: [],
+    removedCountries: [],
   });
   const [theme] = useContext(ThemeContext);
 
@@ -40,15 +45,13 @@ const Countries = () => {
   );
 
   const load = () => {
-    dispatch({ type: "DATA_RESPONSE_IS_FETCHING", isFetching: true });
+    dispatch({ type: "DATA_RESPONSE_IS_FETCHING_TRUE" });
     loadCountries()
       .then((data) =>
         dispatch({ type: "DATA_RESPONSE_SUCCESS", countries: data })
       )
       .catch((error) => dispatch({ type: "DATA_RESPONSE_ERROR", error }))
-      .finally(() =>
-        dispatch({ type: "DATA_RESPONSE_IS_FETCHING", isFetching: false })
-      );
+      .finally(() => dispatch({ type: "DATA_RESPONSE_IS_FETCHING_FALSE" }));
   };
 
   useEffect(() => {
@@ -59,14 +62,34 @@ const Countries = () => {
     setValue(value);
   };
 
+  const checkInput = (name, isAdd) => {
+    dispatch({ type: "SET_CHECKED_COUNTRIES", name, isAdd });
+  };
+
+  const removeCountry = (name) => {
+    console.log(name);
+    dispatch({ type: "SET_REMOVED_COUNTRIES", name });
+  };
+
   const renderCountries = useCallback(
     () =>
-      state.countries
-        .filter((country) =>
-          country.name.toLowerCase().includes(value.toLowerCase())
+      countries
+        .filter(
+          (country) =>
+            (country.name.toLowerCase().includes(value.toLowerCase()) ||
+              checkedCountries.includes(country.name)) &&
+            !removedCountries.includes(country.name)
         )
-        .map((country) => <Country country={country} key={country.name} />),
-    [state.countries, value]
+        .map((country) => (
+          <Country
+            country={country}
+            key={country.name}
+            checkInput={checkInput}
+            value={checkedCountries.includes(country.name)}
+            removeCountry={removeCountry}
+          />
+        )),
+    [countries, checkedCountries, value, removedCountries]
   );
 
   return (
@@ -78,9 +101,9 @@ const Countries = () => {
         onChange={handlerChangeInput}
         placeholder="Search..."
       />
-      {state.isFetching ? (
+      {isFetching ? (
         <Spinner />
-      ) : state.error ? (
+      ) : error ? (
         <div>Error</div>
       ) : (
         <div className={styles.main_list}>{renderCountries()}</div>

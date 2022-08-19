@@ -3,12 +3,38 @@ const reducer = (state, action) => {
     case "DATA_RESPONSE_SUCCESS": {
       const { countries } = action;
 
-      const newState = {
+      return {
         ...state,
         countries,
       };
+    }
 
-      return newState;
+    case "SET_CHECKED_COUNTRIES": {
+      const { name, isAdd } = action;
+
+      let checkedCountries;
+      if (isAdd) {
+        checkedCountries = [...state.checkedCountries, name];
+      } else {
+        checkedCountries = state.checkedCountries.filter(
+          (country) => country !== name
+        );
+      }
+
+      return {
+        ...state,
+        checkedCountries,
+      };
+    }
+
+    case "SET_REMOVED_COUNTRIES": {
+      const { name } = action;
+      const removedCountries = [...state.removedCountries, name];
+
+      return {
+        ...state,
+        removedCountries,
+      };
     }
 
     case "DATA_RESPONSE_ERROR": {
@@ -21,12 +47,18 @@ const reducer = (state, action) => {
       return newState;
     }
 
-    case "DATA_RESPONSE_IS_FETCHING": {
-      const { isFetching } = action;
-
+    case "DATA_RESPONSE_IS_FETCHING_TRUE": {
       const newState = {
         ...state,
-        isFetching,
+        isFetching: true,
+      };
+      return newState;
+    }
+
+    case "DATA_RESPONSE_IS_FETCHING_FALSE": {
+      const newState = {
+        ...state,
+        isFetching: false,
       };
       return newState;
     }

@@ -10,6 +10,7 @@ const { THEMES } = CONSTANTS;
 
 const Country = (props) => {
   const { name, flags, population, region, capital } = props.country;
+  const { value, checkInput, removeCountry } = props;
 
   const [theme] = useContext(ThemeContext);
 
@@ -17,7 +18,6 @@ const Country = (props) => {
     [styles.light_bg]: theme === THEMES.LIGHT,
     [styles.dark_bg]: theme === THEMES.DARK,
   });
-
   const stylesBorderColor = cx({
     [styles.light_border_color]: theme === THEMES.LIGHT,
     [styles.dark_border_color]: theme === THEMES.DARK,
@@ -39,6 +39,12 @@ const Country = (props) => {
         <p className={styles.main_population}>
           Population: <span className={stylesBorderColor}>{population}</span>
         </p>
+        <input
+          type="checkbox"
+          value={value}
+          onChange={() => checkInput(name, !value)}
+        />
+        <button onClick={() => removeCountry(name)}>X</button>
       </div>
     </article>
   );
