@@ -10,13 +10,23 @@ import cx from "classnames";
 
 import Country from "./Country";
 import reducer from "./reducer";
+import Spinner from "../../Spinner";
+import { ThemeContext } from "../../../contexts";
 import CONSTANTS from "../../../constants";
 
 import styles from "./Countries.module.scss";
-import Spinner from "../../Spinner";
-import { ThemeContext } from "../../../contexts";
 
-const { THEMES } = CONSTANTS;
+const {
+  THEMES,
+  ACTIONS: {
+    DATA_RESPONSE_SUCCESS,
+    DATA_RESPONSE_ERROR,
+    DATA_RESPONSE_IS_FETCHING_TRUE,
+    DATA_RESPONSE_IS_FETCHING_FALSE,
+    SET_CHECKED_COUNTRIES,
+    SET_REMOVED_COUNTRIES,
+  },
+} = CONSTANTS;
 
 const Countries = () => {
   const [value, setValue] = useState("");
@@ -31,7 +41,6 @@ const Countries = () => {
     removedCountries: [],
   });
   const [theme] = useContext(ThemeContext);
-
   const stylesInputSearch = cx(
     styles.main_input_search,
     {
@@ -45,13 +54,13 @@ const Countries = () => {
   );
 
   const load = () => {
-    dispatch({ type: "DATA_RESPONSE_IS_FETCHING_TRUE" });
+    dispatch({ type: DATA_RESPONSE_IS_FETCHING_TRUE });
     loadCountries()
       .then((data) =>
-        dispatch({ type: "DATA_RESPONSE_SUCCESS", countries: data })
+        dispatch({ type: DATA_RESPONSE_SUCCESS, countries: data })
       )
-      .catch((error) => dispatch({ type: "DATA_RESPONSE_ERROR", error }))
-      .finally(() => dispatch({ type: "DATA_RESPONSE_IS_FETCHING_FALSE" }));
+      .catch((error) => dispatch({ type: DATA_RESPONSE_ERROR, error }))
+      .finally(() => dispatch({ type: DATA_RESPONSE_IS_FETCHING_FALSE }));
   };
 
   useEffect(() => {
@@ -63,12 +72,11 @@ const Countries = () => {
   };
 
   const checkInput = (name, isAdd) => {
-    dispatch({ type: "SET_CHECKED_COUNTRIES", name, isAdd });
+    dispatch({ type: SET_CHECKED_COUNTRIES, name, isAdd });
   };
 
   const removeCountry = (name) => {
-    console.log(name);
-    dispatch({ type: "SET_REMOVED_COUNTRIES", name });
+    dispatch({ type: SET_REMOVED_COUNTRIES, name });
   };
 
   const renderCountries = useCallback(

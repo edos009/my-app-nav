@@ -1,6 +1,4 @@
-import { createContext } from "react";
-
-export const ThemeContext = createContext();
-export const LanguageContext = createContext();
-export const PageContext = createContext();
-export const CountryCheckedContext = createContext();
+export { default as ThemeContext } from "./ThemeContext";
+export { default as LanguageContext } from "./LanguageContext";
+export { default as PageContext } from "./PageContext";
+export { default as CountryCheckedContext } from "./CountryCheckedContext";

@@ -39,12 +39,25 @@ const Country = (props) => {
         <p className={styles.main_population}>
           Population: <span className={stylesBorderColor}>{population}</span>
         </p>
-        <input
-          type="checkbox"
-          value={value}
-          onChange={() => checkInput(name, !value)}
-        />
-        <button onClick={() => removeCountry(name)}>X</button>
+        <div>
+          <input
+            id={name}
+            className={styles.main_checkbox}
+            name={name}
+            type="checkbox"
+            value={value}
+            onChange={() => checkInput(name, !value)}
+          />
+          <label className={styles.main_checkbox_label} htmlFor={name}>
+            Choose country:
+          </label>
+          <button
+            className={styles.main_btn_remove}
+            onClick={() => removeCountry(name)}
+          >
+            X
+          </button>
+        </div>
       </div>
     </article>
   );

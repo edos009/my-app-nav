@@ -50,13 +50,15 @@
   }
 
   &_box_info {
+    position: relative;
     margin: 0 20px 20px;
   }
 
   &_name,
   &_capital,
   &_region,
-  &_population {
+  &_population,
+  &_checkbox_label {
     margin-bottom: 2px;
 
     font-weight: 400;
@@ -72,12 +74,67 @@
   }
 
   &_name {
-    margin-bottom: 20px;
+    min-height: 65px;
+    margin-bottom: 10px;
 
     font-weight: 700;
     font-size: 26px;
     text-transform: uppercase;
     text-align: center;
+  }
+
+  &_checkbox_label {
+    content: "";
+    position: relative;
+
+    padding-right: 30px;
+
+    cursor: pointer;
+
+    &::after, &::before{
+      content: '';
+      position: absolute;
+
+      border-radius: 3px;
+    }
+
+    &::after {
+      width: 25px;
+      height: 25px;
+
+      top: 3px;
+      right: 0;
+
+      background-color: #fff;
+    }
+  }
+
+  &_checkbox {
+    display: none;
+    &:checked + &_label::before{
+      width: 17px;
+      height: 17px;
+
+      z-index: 99;
+
+      top: 7px;
+      right: 4px;
+
+      background-color: #222
+    }
+  }
+
+  &_btn_remove{
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+
+    font-weight: 700;
+    font-size: 18px;
   }
 }
 
