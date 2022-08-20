@@ -3,11 +3,13 @@ import { ThemeContext, LanguageContext } from "../../../contexts";
 import cx from "classnames";
 import CONSTANTS from "../../../constants";
 
-import styles from "./Home.module.scss";
+import Countries from "../../Main/Countries";
+
+import styles from "./PageCountries.module.scss";
 
 const { THEMES, LANGUAGES } = CONSTANTS;
 
-const Home = () => {
+const PageCountries = () => {
   const [theme] = useContext(ThemeContext);
   const [language] = useContext(LanguageContext);
 
@@ -21,17 +23,18 @@ const Home = () => {
         <div className={stylesContainer}>
           {language === LANGUAGES.EN.LANG ? (
             <h1 className={styles.main_title}>
-              {LANGUAGES.EN.PAGE.HOME.TITLE}
+              {LANGUAGES.EN.PAGE.COUNTRIES.TITLE}
             </h1>
           ) : (
             <h1 className={styles.main_title}>
-              {LANGUAGES.UK.PAGE.HOME.TITLE}
+              {LANGUAGES.UK.PAGE.COUNTRIES.TITLE}
             </h1>
           )}
+          <Countries />
         </div>
       </div>
     </>
   );
 };
 
-export default Home;
+export default PageCountries;

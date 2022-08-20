@@ -90,8 +90,8 @@ const Countries = () => {
         )
         .map((country) => (
           <Country
-            country={country}
             key={country.name}
+            country={country}
             checkInput={checkInput}
             value={checkedCountries.includes(country.name)}
             removeCountry={removeCountry}

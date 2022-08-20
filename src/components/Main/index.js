@@ -5,16 +5,17 @@ import { ThemeContext } from "../../contexts";
 import CONSTANTS from "../../constants";
 
 import Home from "./Home";
-import Gallery from "./Gallery";
+import PageCountries from "../page/PageCountries";
 import About from "./About";
 import SignIn from "./SignIn";
 
 import styles from "../../App.module.scss";
+import PageCountryInfo from '../page/PageCountyInfo/index';
 
-const {THEMES} = CONSTANTS;
+const { THEMES } = CONSTANTS;
 
 const Main = (props) => {
-  const [theme] = useContext(ThemeContext)
+  const [theme] = useContext(ThemeContext);
   const { onSubmit } = props;
 
   const stylesContainer = cx({
@@ -26,7 +27,8 @@ const Main = (props) => {
     <main className={stylesContainer}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/countries/" element={<PageCountries />} />
+        <Route path="/countries/:id" element={<PageCountryInfo/>} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<SignIn onSubmit={onSubmit} />} />
       </Routes>

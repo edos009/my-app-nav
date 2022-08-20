@@ -9,13 +9,13 @@ const CONSTANTS = {
       LOGO: "Logo",
       NAV: [
         { to: "/", title: "Home" },
-        { to: "/gallery", title: "Gallery" },
+        { to: "/countries", title: "Geography" },
         { to: "/about", title: "About" },
         { to: "/login", title: "Sign In" },
       ],
       PAGE: {
-        HOME: { TITLE: "Countries" },
-        GALLERY: { TITLE: "Gallery" },
+        HOME: { TITLE: "Home" },
+        COUNTRIES: { TITLE: "Countries" },
         ABOUT: { TITLE: "About" },
         SIGN_IN: { TITLE: "Sign In" },
       },
@@ -26,13 +26,13 @@ const CONSTANTS = {
       LOGO: "Лого",
       NAV: [
         { to: "/", title: "Дім" },
-        { to: "/gallery", title: "Галерея" },
+        { to: "/countries", title: "Географія" },
         { to: "/about", title: "О нас" },
         { to: "/contacts", title: "Увійти" },
       ],
       PAGE: {
-        HOME: { TITLE: "Країни" },
-        GALLERY: { TITLE: "Галерея" },
+        HOME: { TITLE: "Дім" },
+        COUNTRIES: { TITLE: "Країни" },
         ABOUT: { TITLE: "О нас" },
         SIGN_IN: { TITLE: "Увійти" },
       },
