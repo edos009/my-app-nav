@@ -1,0 +1,81 @@
+@import "../../../../common/styles/template";
+
+.wrapper {
+  margin: 30px 0 30px;
+
+  &_box_img {
+    max-width: 80%;
+    height: 550px;
+
+    margin: 0 auto 30px;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &_img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &_name,
+  &_region,
+  &_capital,
+  &_nameLanguage,
+  &_population,
+  &_area,
+  &_border_countries_title,
+  &_border_countries_item {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 1.2em;
+    text-align: center;
+  }
+
+  &_region span,
+  &_capital span,
+  &_nameLanguage span,
+  &_population span,
+  &_area span,
+  &_border_countries_item {
+    font-weight: 700;
+    border-bottom: 2px solid;
+  }
+
+  &_name {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 55px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &_nameLanguage{
+    margin-top: 30px;
+  }
+
+  &_border_countries {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    margin-top: 30px;
+  }
+
+  &_border_countries_list{
+    display: flex;
+    gap: 15px;
+  }
+}
+
+.light_border_color {
+  @extend %light_border_color;
+}
+
+.dark_border_color {
+  @extend %dark_border_color;
+}
