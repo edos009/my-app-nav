@@ -1,7 +1,7 @@
 @import "../../../../common/styles/template";
 
 .wrapper {
-  margin: 30px 0 30px;
+  margin: 30px 0 0;
 
   &_box_img {
     max-width: 80%;
@@ -52,7 +52,7 @@
     text-transform: uppercase;
   }
 
-  &_nameLanguage{
+  &_nameLanguage {
     margin-top: 30px;
   }
 
@@ -66,16 +66,41 @@
     margin-top: 30px;
   }
 
-  &_border_countries_list{
+  &_border_countries_list {
     display: flex;
     gap: 15px;
   }
+
+  &_btn_back {
+    display: block;
+    margin: 40px auto 0;
+
+    padding: 10px 50px;
+    border: none;
+    border-radius: 3px;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+  }
 }
 
+.dark_bg {
+  @extend %dark_bg;
+}
+
+.light_bg {
+  @extend %light_bg;
+}
+
+.light_color,
 .light_border_color {
   @extend %light_border_color;
 }
 
+.dark_color,
 .dark_border_color {
   @extend %dark_border_color;
 }

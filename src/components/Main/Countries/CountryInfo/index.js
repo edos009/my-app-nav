@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import cx from "classnames";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 import { loadCountry } from "../../../../api";
 import CONSTANTS from "../../../../constants";
@@ -22,6 +23,7 @@ const {
 
 const CountryInfo = () => {
   const { id } = useParams();
+  const navigateCountry = useNavigate();
   const [theme] = useContext(ThemeContext);
   const [{ country, error, isFetching }, dispatch] = useReducer(reducer, {
     country: {},
@@ -51,6 +53,17 @@ const CountryInfo = () => {
   } = country;
   const nameLanguage = languages[0]?.name;
 
+  const stylesBtnBack = cx(
+    styles.wrapper_btn_back,
+    {
+      [styles.light_bg]: theme === THEMES.LIGHT,
+      [styles.dark_bg]: theme === THEMES.DARK,
+    },
+    {
+      [styles.light_color]: theme === THEMES.LIGHT,
+      [styles.dark_color]: theme === THEMES.DARK,
+    }
+  );
   const stylesBorderColor = cx({
     [styles.light_border_color]: theme === THEMES.LIGHT,
     [styles.dark_border_color]: theme === THEMES.DARK,
@@ -106,6 +119,12 @@ const CountryInfo = () => {
                 </>
               )}
             </div>
+            <button
+              className={stylesBtnBack}
+              onClick={() => navigateCountry(`/countries`)}
+            >
+              Back
+            </button>
           </div>
         </div>
       )}
